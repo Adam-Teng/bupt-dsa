@@ -1,0 +1,25 @@
+{
+  "cSpell.words": [
+    "antfu",
+    "benbu",
+    "BUPT",
+    "iconify",
+    "pnpm",
+    "shahe",
+    "unocss",
+    "unplugin",
+    "vite",
+    "vitejs",
+    "Vitesse",
+    "vitest",
+    "vueuse"
+  ],
+  "prettier.enable": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+  "files.associations": {
+    "*.css": "postcss",
+  },
+}
