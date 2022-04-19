@@ -10,6 +10,12 @@ export default defineComponent({
     SearchView,
     gmView,
   },
+  setup() {
+    const router = useRouter()
+    return {
+      router,
+    }
+  },
 })
 </script>
 
@@ -18,5 +24,13 @@ export default defineComponent({
     <map-view />
     <gm-view />
     <search-view />
+  </div>
+  <div>
+    <button
+      class="btn text-sm mt-185"
+      @click="router.back()"
+    >
+      Back
+    </button>
   </div>
 </template>

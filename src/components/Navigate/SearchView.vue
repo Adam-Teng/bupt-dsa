@@ -232,7 +232,6 @@ export default defineComponent({
             :disable-transitions="false"
             @close="bus.middle.delete(one)"
           >
-            <fa-icon icon="map-marker-alt" />
             {{ bus.map.pointsMap[one].name }}
           </el-tag>
         </div>
@@ -245,7 +244,7 @@ export default defineComponent({
               {{ i.description }}
             </div>
             <el-button circle class="go-button">
-              <fa-icon icon="directions" />
+              <div i-carbon-direction-straight-right />
             </el-button>
           </li>
         </ul>
