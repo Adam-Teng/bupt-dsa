@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
-import userStore from '../stores/user'
+import userStore from '~/stores/user'
 
 export default defineComponent({
   setup() {
@@ -33,7 +33,7 @@ export default defineComponent({
 
   <form>
     <div class="form-group my-2">
-      <label username>Username</label>
+      <label>Username</label>
       <div py-1 />
       <input
         v-model="form.username"
@@ -71,7 +71,7 @@ export default defineComponent({
     <div class="text-danger my-2">
       {{ userStore.state.error }}
     </div>
-    <button class="btn btn-success btn-block my-2" type="submit" click="onSubmit">
+    <button class="btn btn-success btn-block my-2" type="submit" @click="onSubmit">
       Login
     </button>
   </form>
