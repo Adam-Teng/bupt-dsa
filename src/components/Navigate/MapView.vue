@@ -137,14 +137,13 @@ export default defineComponent({
     watch(
       () => currentPoint,
       () => {
-        marker
-                    && marker.updateGeometries([
-                      {
-                        id: 'user',
-                        styleId: 'car-down', // 绑定样式
-                        position: new TMap.LatLng(currentPoint.value.position.lat, currentPoint.value.position.lng), // 初始坐标位置
-                      },
-                    ])
+        marker && marker.updateGeometries([
+          {
+            id: 'user',
+            styleId: 'car-down', // 绑定样式
+            position: new TMap.LatLng(currentPoint.value.position.lat, currentPoint.value.position.lng), // 初始坐标位置
+          },
+        ])
       },
     )
     return {
