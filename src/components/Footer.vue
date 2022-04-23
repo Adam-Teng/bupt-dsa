@@ -9,8 +9,6 @@ import { isDark, toggleDark } from '~/composables'
       <div v-else i-carbon-sun />
     </button>
 
-    <a i-carbon-continue />
-
     <a
       class="icon-btn"
       i-carbon-logo-github

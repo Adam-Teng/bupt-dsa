@@ -7,13 +7,11 @@ declare module '@vue/runtime-core' {
     Clock: typeof import('./src/components/clock.vue')['default']
     Counter: typeof import('./src/components/Counter.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
-    FormLogin: typeof import('./src/components/FormLogin.vue')['default']
     GmView: typeof import('./src/components/Navigate/gmView.vue')['default']
     MapView: typeof import('./src/components/Navigate/MapView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchView: typeof import('./src/components/Navigate/SearchView.vue')['default']
-    Test: typeof import('./src/components/test.vue')['default']
   }
 }
 
