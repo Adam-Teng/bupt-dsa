@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-prototype-builtins */
 /* eslint-disable max-params */
 import type { edgeMap, mapPoint, pointMap } from '../typings/map'
 

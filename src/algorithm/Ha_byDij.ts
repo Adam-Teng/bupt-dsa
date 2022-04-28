@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 /* eslint-disable max-params */
 import type { edgeMap, mapPoint, pointMap } from '../typings/map'
 import { dijkstra } from './Dij_Ha'

@@ -24,7 +24,7 @@ const goMessage = () => {
     <div i-carbon-campsite text-4xl inline-block />
     <p>
       <a text-2xl rel="noreferrer" target="_blank">
-        BUPT Student System
+        BUPT Students System
       </a>
     </p>
 

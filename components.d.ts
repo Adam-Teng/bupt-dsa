@@ -5,9 +5,11 @@
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Clock: typeof import('./src/components/clock.vue')['default']
+    Count: typeof import('./src/components/count.vue')['default']
     Counter: typeof import('./src/components/Counter.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     GmView: typeof import('./src/components/Navigate/gmView.vue')['default']
+    LogView: typeof import('./src/components/Navigate/LogView.vue')['default']
     MapView: typeof import('./src/components/Navigate/MapView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
