@@ -8,11 +8,11 @@ function alarm() {
   }
 }
 function formatTime(value: number) {
-  const result = value % (30 * 24 * 6)
-  const d = Math.floor(result / (6 * 24)) < 10 ? `0${Math.floor(result / (6 * 24))}` : Math.floor(result / (6 * 24))
-  const h = Math.floor((result / 6) % 24) < 10 ? `0${Math.floor((result / 6) % 24)}` : Math.floor((result / 6) % 24)
-  const m = Math.floor(result % 6)
-  return `June ${d} ${h}:${m}0`
+  const result = value % (30 * 24 * 10)
+  const d = Math.floor(result / (10 * 24)) < 10 ? `0${Math.floor(result / (10 * 24))}` : Math.floor(result / (10 * 24))
+  const h = Math.floor((result / 10) % 24) < 10 ? `0${Math.floor((result / 10) % 24)}` : Math.floor((result / 10) % 24)
+  const m = Math.floor(result % 10)
+  return `六月${d}日 ${h}时 ${m}`
 }
 watchEffect(() => {
   alarm()

@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable max-params */
-import type { edgeMap, mapPoint, pointMap } from '../typings/map'
-
 import { dijkstra } from './Dij_Ha'
 import { dijkstra as dij_raw } from './Dij'
+import type { edgeMap, mapPoint, pointMap } from '~/typings/map'
+import { bus } from '~/bus'
 
 const T0 = 50000.0 // 初始温度
 const T_end = 1e-4
@@ -18,17 +18,35 @@ function init(wayPointList: mapPoint[], startPoint: mapPoint, endPoint: mapPoint
   return firstPath
 }
 
-function countDis(myEdgeMap: edgeMap, myPointMap: pointMap, timeOrDis: number) {
+function countDis(
+  myEdgeMap: edgeMap,
+  myPointMap: pointMap,
+  timeOrDis: number,
+  bike: number,
+  wayPointList: mapPoint[],
+  startPoint: mapPoint,
+  endPoint: mapPoint,
+) {
   const memory: Record<string, Record<string, [number, string[], string[]]>> = {}
-  for (const point in myPointMap) {
-    if (myPointMap.hasOwnProperty(point)) {
-      memory[point] = {}
-      const answer = dijkstra(myEdgeMap, myPointMap, myPointMap[point], myPointMap[point], timeOrDis)
-      for (const idCur in answer[0]) {
-        if (answer[0].hasOwnProperty(idCur))
-          memory[point][idCur] = [answer[0][idCur], answer[1][idCur], answer[2][idCur]]
-      }
+  for (const point of wayPointList) {
+    memory[point.id] = {}
+    const answer = dijkstra(myEdgeMap, myPointMap, point, point, timeOrDis, bike)
+    for (const idCur in answer[0]) {
+      if (answer[0].hasOwnProperty(idCur))
+        memory[point.id][idCur] = [answer[0][idCur], answer[1][idCur], answer[2][idCur]]
     }
+  }
+  memory[startPoint.id] = {}
+  let answer = dijkstra(myEdgeMap, myPointMap, startPoint, startPoint, timeOrDis, bike)
+  for (const idCur in answer[0]) {
+    if (answer[0].hasOwnProperty(idCur))
+      memory[startPoint.id][idCur] = [answer[0][idCur], answer[1][idCur], answer[2][idCur]]
+  }
+  memory[endPoint.id] = {}
+  answer = dijkstra(myEdgeMap, myPointMap, endPoint, endPoint, timeOrDis, bike)
+  for (const idCur in answer[0]) {
+    if (answer[0].hasOwnProperty(idCur))
+      memory[endPoint.id][idCur] = [answer[0][idCur], answer[1][idCur], answer[2][idCur]]
   }
   return memory
 }
@@ -69,14 +87,14 @@ export function SA(
   wayPointList: mapPoint[],
   /** distance: 0, time:1 */
   timeOrDis: number,
-): [number, string[], string[]] {
-  console.log('now in SA')
+  bike: number,
+): [number, string[], string[], number[]] {
   if (wayPointList.length === 0) {
     console.log('SA to Dij')
-    return dij_raw(myEdgeMap, myPointMap, startPoint, endPoint, timeOrDis)
+    return dij_raw(myEdgeMap, myPointMap, startPoint, endPoint, timeOrDis, bike)
   }
   let T: number = T0
-  const memory = countDis(myEdgeMap, myPointMap, timeOrDis)
+  const memory = countDis(myEdgeMap, myPointMap, timeOrDis, bike, wayPointList, startPoint, endPoint)
   let path: mapPoint[]
   let count = 0
   path = init(wayPointList, startPoint, endPoint)
@@ -99,6 +117,7 @@ export function SA(
     console.log(count)
   }
   let answer_path: string[] = []
+  const answer_path_time: number[] = []
   let answer_points: string[] = [startPoint.id]
   for (let i = 0; i < path.length - 1; i++) {
     const tmpMemory = memory[path[i].id][path[i + 1].id][1].concat()
@@ -106,6 +125,30 @@ export function SA(
     answer_points = answer_points.concat(tmpMemory)
     answer_path = answer_path.concat(memory[path[i].id][path[i + 1].id][2])
   }
+  for (const pathItem of answer_path) {
+    if (myEdgeMap[pathItem].type === 1) {
+      answer_path_time.splice(
+        0,
+        0,
+        myEdgeMap[pathItem].length / (1 + myEdgeMap[pathItem].congestionDegree) / bus.speed.walk,
+      )
+    }
+    else if (myEdgeMap[pathItem].type === 2) {
+      answer_path_time.splice(
+        0,
+        0,
+        myEdgeMap[pathItem].length / (1 + myEdgeMap[pathItem].congestionDegree) / bus.speed.bike,
+      )
+    }
+    else {
+      answer_path_time.splice(
+        0,
+        0,
+        myEdgeMap[pathItem].length / (1 + myEdgeMap[pathItem].congestionDegree) / bus.speed.bus,
+      )
+    }
+  }
+
   console.log('SA ended')
-  return [path_len(memory, path), answer_points, answer_path]
+  return [path_len(memory, path), answer_points, answer_path, answer_path_time]
 }

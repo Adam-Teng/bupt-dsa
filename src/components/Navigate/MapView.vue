@@ -1,7 +1,7 @@
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref, watch } from 'vue'
-import car from '../../assets/car.png'
+import { computed, defineComponent, nextTick, onMounted, ref, watch } from 'vue'
 import { bus } from '../../bus'
+import car from '~/assets/car.png'
 const TMap: any = window.TMap
 export default defineComponent({
   setup() {
@@ -12,7 +12,8 @@ export default defineComponent({
     let map: any
     let label: any
     let marker: any
-    let routeLayer: any
+    let routeLayer: any = null
+    let middleMarkerLayer: any = null
     onMounted(() => {
       const center = new TMap.LatLng(40.15756173403039, 116.2895435631267)
       map = new TMap.Map(mapEl.value, {
@@ -86,6 +87,12 @@ export default defineComponent({
         },
         geometries: labels,
       })
+      const eventClick = function(res: any) {
+        const ress = res && res.geometry
+        if (ress)
+          bus.position = ress.id
+      }
+      label.on('click', eventClick)
     })
     watch(
       () => bus.activeRoute,
@@ -93,14 +100,54 @@ export default defineComponent({
         if (routeLayer)
           routeLayer.destroy()
 
+        if (middleMarkerLayer)
+          middleMarkerLayer.destroy()
+
         marker.stopMove()
         if (!route)
           return
 
-        const path = []
-        for (const r of route.pointSeq) {
+        const rainbowPaths = []
+        const P_GREEN = 'rgba(0, 180, 0, 1)'
+        const P_YELLOW = '#ff9200'
+        const P_RED = '#f56c6c'
+        for (let i = 1; i < route.pointSeq.length; i++) {
+          const p0Id = route.pointSeq[i - 1]
+          const p1Id = route.pointSeq[i]
+          const p0 = bus.map.pointsMap[p0Id]
+          const p1 = bus.map.pointsMap[p1Id]
+          const edge = bus.map.edgeMap[route.edgeSeq[i - 1]]
+          rainbowPaths.push({
+            color:
+                            edge.congestionDegree < 0.334 ? P_GREEN : edge.congestionDegree < 0.667 ? P_YELLOW : P_RED,
+            path: [
+              new TMap.LatLng(p0.position.lat, p0.position.lng),
+              new TMap.LatLng(p1.position.lat, p1.position.lng),
+            ],
+          })
+        }
+        const points = [
+          {
+            id: bus.current,
+            styleId: 'start',
+            position: new TMap.LatLng(currentPoint.value.position.lat, currentPoint.value.position.lng),
+          },
+        ]
+        for (const r of bus.middle) {
           const p = bus.map.pointsMap[r].position
-          path.push(new TMap.LatLng(p.lat, p.lng))
+          points.push({
+            id: r,
+            styleId: 'middle',
+            position: new TMap.LatLng(p.lat, p.lng),
+          })
+        }
+        {
+          const p = bus.map.pointsMap[bus.position].position
+          points.push({
+            id: bus.position + (bus.position === bus.current ? 'e' : ''),
+            styleId: 'end',
+            position: new TMap.LatLng(p.lat, bus.position === bus.current ? p.lng + 0.00005 : p.lng),
+          })
         }
         routeLayer = new TMap.MultiPolyline({
           map, // 绘制到目标地图
@@ -108,42 +155,170 @@ export default defineComponent({
           styles: {
             style_blue: new TMap.PolylineStyle({
               color: '#3777FF', // 线填充色
-              width: 5, // 折线宽度
-              borderWidth: 2, // 边线宽度
+              width: 10, // 折线宽度
+              borderWidth: 1, // 边线宽度
               borderColor: '#FFF', // 边线颜色
               lineCap: 'round', // 线端头方式
+              showArrow: true,
+              arrowOptions: {
+                space: 70,
+              },
             }),
           },
           geometries: [
             {
               styleId: 'style_blue',
-              paths: path,
+              rainbowPaths,
             },
           ],
         })
-        marker.moveAlong(
-          {
-            user: {
-              path,
-              speed: 200,
-            },
+        middleMarkerLayer = new TMap.MultiMarker({
+          id: 'middle-marker-layer',
+          map,
+          styles: {
+            start: new TMap.MarkerStyle({
+              width: 25,
+              height: 35,
+              anchor: { x: 16, y: 32 },
+              src: 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/start.png',
+            }),
+            end: new TMap.MarkerStyle({
+              width: 25,
+              height: 35,
+              anchor: { x: 16, y: 32 },
+              src: 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/end.png',
+            }),
+            middle: new TMap.MarkerStyle({
+              width: 25,
+              height: 35,
+              anchor: { x: 16, y: 32 },
+              src: 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerDefault.png',
+            }),
           },
-          {
-            autoRotation: true,
-          },
-        )
+          geometries: points,
+        })
+        const bounds = new TMap.LatLngBounds()
+        route.pointSeq.forEach((item) => {
+          // 若坐标点不在范围内，扩大bounds范围
+          if (
+            bounds.isEmpty()
+                        || !bounds.contains(
+                          new TMap.LatLng(bus.map.pointsMap[item].position.lat, bus.map.pointsMap[item].position.lng),
+                        )
+          ) {
+            bounds.extend(
+              new TMap.LatLng(bus.map.pointsMap[item].position.lat, bus.map.pointsMap[item].position.lng),
+            )
+          }
+        })
+        // 设置地图可视范围
+        map.fitBounds(bounds, {
+          padding: 200, // 自适应边距
+        })
       },
     )
     watch(
-      () => currentPoint,
+      () => bus.animateState,
+      async(v) => {
+        if (!v) {
+          marker.stopMove()
+          marker.updateGeometries([
+            {
+              id: 'user',
+              styleId: 'car-down', // 绑定样式
+              position: new TMap.LatLng(currentPoint.value.position.lat, currentPoint.value.position.lng), // 初始坐标位置
+            },
+          ])
+          return
+        }
+        if (!bus.activeRoute)
+          return
+        window.marker = marker
+        let pos = 0
+        const moving = async function(p: any) {
+          // console.log(p)
+        }
+        function next() {
+          pos++
+          if (!bus.activeRoute || !bus.activeRoute.pointSeq[pos]) {
+            marker.off('move_ended', next)
+            marker.off('moving', moving)
+            if (bus.activeRoute) {
+              const p0 = bus.map.pointsMap[bus.activeRoute.pointSeq[pos - 1]]
+              bus.current = p0.id
+              bus.log.push(`到达 ${p0.name} ，导航结束`)
+            }
+            bus.animateState = false
+            return
+          }
+          const p0 = bus.map.pointsMap[bus.activeRoute.pointSeq[pos - 1]]
+          const p1 = bus.map.pointsMap[bus.activeRoute.pointSeq[pos - 0]]
+          const t0 = new TMap.LatLng(p0.position.lat, p0.position.lng)
+          const t1 = new TMap.LatLng(p1.position.lat, p1.position.lng)
+          const e0 = bus.map.edgeMap[bus.activeRoute.edgeSeq[pos - 1]]
+          t0.id = p0.id
+          t1.id = p1.id
+          let speed = bus.speed.walk / (e0.congestionDegree + 1)
+          if (e0.type === 3)
+            speed *= 5
+
+          marker.once('move_ended', next)
+          if (pos === 1)
+            bus.log.push(`开始导航，前方 ${p1.name} 拥挤度 ${e0.congestionDegree.toFixed(2)}`)
+
+          bus.log.push(`到达 ${p0.name} ，前方 ${p1.name} 拥挤度 ${e0.congestionDegree.toFixed(2)}`)
+          bus.current = p0.id
+          bus.animateInfo.current = p0.id
+          bus.animateInfo.next = p1.id
+          marker.moveAlong(
+            {
+              user: {
+                path: [t0, t1],
+                speed: speed * bus.speed.timeScale * 3.6,
+              },
+            },
+            {
+              autoRotation: true,
+            },
+          )
+        }
+        marker.on('moving', moving)
+        marker.once('move_stopped', () => {
+          marker.off('move_ended', next)
+          marker.off('moving', moving)
+        })
+        next()
+      },
+    )
+    watch(
+      () => bus.current,
       () => {
-        marker && marker.updateGeometries([
-          {
-            id: 'user',
-            styleId: 'car-down', // 绑定样式
-            position: new TMap.LatLng(currentPoint.value.position.lat, currentPoint.value.position.lng), // 初始坐标位置
-          },
-        ])
+        if (bus.animateState)
+          return
+        marker
+                    && marker.updateGeometries([
+                      {
+                        id: 'user',
+                        styleId: 'car-down', // 绑定样式
+                        position: new TMap.LatLng(currentPoint.value.position.lat, currentPoint.value.position.lng), // 初始坐标位置
+                      },
+                    ])
+        map.panTo(new TMap.LatLng(currentPoint.value.position.lat, currentPoint.value.position.lng))
+      },
+    )
+    watch(
+      () => bus.animateInfo.paused,
+      async(v) => {
+        if (v) {
+          marker.pauseMove()
+          await nextTick()
+          marker.pauseMove()
+        }
+        else {
+          marker.resumeMove()
+          await nextTick()
+          marker.resumeMove()
+        }
       },
     )
     return {

@@ -33,7 +33,7 @@ export default defineComponent({
     padding: 0;
     width: 40px;
     right: 30px;
-    top: 190px;
+    top: 240px;
     z-index: 3;
 }
 </style>
