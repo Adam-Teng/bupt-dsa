@@ -32,4 +32,15 @@ const timeText = computed(() => formatTime(counter))
       </button>
     </div>
   </div>
+  <div>
+    <p>
+      <a>
+        备注：
+        <ul>
+          <li>地图上有X个点，X条边</li>
+          <li>关于公交车和班车：默认跨校区之间都采用公交车或班车，则根据系统设定，在班车发车前15分钟内选择班车往返两校区之间所用时间短于公交车，其他情况选用公交车</li>
+        </ul>
+      </a>
+    </p>
+  </div>
 </template>

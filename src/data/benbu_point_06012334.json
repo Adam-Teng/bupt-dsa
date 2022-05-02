@@ -38,27 +38,6 @@
         "styleId": "default"
     },
     {
-        "id": "e9a8060e-da54-4cc9-8dbb-9c9cff7685f6",
-        "name": "家属区28号楼",
-        "position": {
-            "lat": 39.95840329506395,
-            "lng": 116.35843416247371,
-            "height": 0
-        },
-        "neighborWalk": [
-            {
-                "toPointId": "932ed0bb-6de9-48d1-8652-31a1a9bfbd1a",
-                "edgeId": "9b11dbd0-c2de-11eb-9105-401c83a07338"
-            },
-            {
-                "toPointId": "1f3e4830-9018-4d9c-9c37-0f531b8c9927",
-                "edgeId": "9d49b46b-c2de-11eb-a159-401c83a07338"
-            }
-        ],
-        "neighborBike": [],
-        "styleId": "default"
-    },
-    {
         "id": "1f3e4830-9018-4d9c-9c37-0f531b8c9927",
         "name": "路口",
         "position": {
@@ -74,27 +53,6 @@
             {
                 "toPointId": "d8b417a1-e3a7-4a6d-8d3a-bcf565ab9bfc",
                 "edgeId": "b57ef858-c2de-11eb-83f5-401c83a07338"
-            }
-        ],
-        "neighborBike": [],
-        "styleId": "default"
-    },
-    {
-        "id": "932ed0bb-6de9-48d1-8652-31a1a9bfbd1a",
-        "name": "家属区5号楼",
-        "position": {
-            "lat": 39.95841278022155,
-            "lng": 116.35819562535437,
-            "height": 0
-        },
-        "neighborWalk": [
-            {
-                "toPointId": "e9a8060e-da54-4cc9-8dbb-9c9cff7685f6",
-                "edgeId": "9b11dbd0-c2de-11eb-9105-401c83a07338"
-            },
-            {
-                "toPointId": "21c4fed4-1d71-4394-b1b6-5d5caacb6efc",
-                "edgeId": "be446699-c2de-11eb-a09e-401c83a07338"
             }
         ],
         "neighborBike": [],

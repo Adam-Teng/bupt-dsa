@@ -1,12 +1,12 @@
 <script lang="ts">
 import { defineComponent, nextTick, ref, watch } from 'vue'
-import { bus } from '~/bus'
+import { student2MessageBox } from '~/bus'
 
 export default defineComponent({
   setup() {
     const logbox = ref(null)
     watch(
-      () => bus.log,
+      () => student2MessageBox,
       async() => {
         if (!logbox.value)
           return
@@ -18,27 +18,19 @@ export default defineComponent({
         deep: true,
       },
     )
-    function exportFile() {
-      const p = bus.log.join('\r\n')
-      const a = document.createElement('a')
-      a.href = `data:text/plain,${p}`
-      a.download = 'Log.txt'
-      a.click()
-    }
     return {
-      bus,
+      student2MessageBox,
       logbox,
-      exportFile,
     }
   },
 })
 </script>
 <template>
-  <el-popover placement="left" title="日志管理" :width="500" trigger="click">
+  <el-popover placement="right" title="学生2收件箱" :width="300" trigger="click">
     <div class="log">
-      <el-empty v-show="bus.log.length <= 0" description="暂无日志" />
-      <ul v-show="bus.log.length > 0" ref="logbox" class="logbox">
-        <li v-for="(i, a) in bus.log" :key="a">
+      <el-empty v-show="student2MessageBox.length <= 0" description="暂无日志" />
+      <ul v-show="student2MessageBox.length > 0" ref="logbox" class="logbox">
+        <li v-for="(i, a) in student2MessageBox" :key="a">
           {{ i }}
         </li>
       </ul>
@@ -56,16 +48,16 @@ export default defineComponent({
     position: absolute;
     padding: 0;
     width: 40px;
-    right: 30px;
-    top: 189px;
+    right: 530px;
+    top: 587px;
     z-index: 3;
 }
 .log {
-    height: 400px;
+    height: 200px;
     .el-empty,
     .logbox {
         margin: 0;
-        height: 350px;
+        height: 170px;
     }
     &::v-deep(.el-form-item) {
         margin-bottom: 0;

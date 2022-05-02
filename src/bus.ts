@@ -60,3 +60,7 @@ for (const i of bus.map.edges)
 export const currentPoint = computed(() => {
   return bus.map.pointsMap[bus.current]
 })
+
+export const student1MessageBox = reactive([] as string[])
+export const student2MessageBox = reactive([] as string[])
+export const student3MessageBox = reactive([] as string[])
