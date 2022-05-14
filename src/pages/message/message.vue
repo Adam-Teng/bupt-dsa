@@ -1,5 +1,4 @@
 <script lang="ts">
-// test
 import { defineComponent } from 'vue'
 import manager from '~/components/message/Manager.vue'
 import box1 from '~/components/message/box1.vue'

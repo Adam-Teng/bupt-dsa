@@ -30,7 +30,7 @@ export default defineComponent({
   </div>
   <div>
     <button
-      class="btn text-sm mt-185"
+      class="btn text-sm mt-135"
       @click="router.back()"
     >
       Back
