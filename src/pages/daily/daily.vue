@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import back from '~/components/back/dailyBack.vue'
+import back from '~/components/Back.vue'
 export default defineComponent({
   components: {
     back,
