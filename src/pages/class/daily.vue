@@ -4,7 +4,7 @@ import back from '~/components/Back.vue'
 
 <template>
   <div>
-    <iframe src="/test.html" scrolling="auto" frameborder="0" style="width: 100%;height: 900px;" />
+    <iframe src="/index.html" scrolling="auto" frameborder="0" style="width: 100%;height: 900px;" />
   </div>
   <back />
 </template>
