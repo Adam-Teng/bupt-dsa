@@ -8,11 +8,11 @@ a {
     text-decoration: underline;
 }
 
-.info-button-2:hover {
+.acti-button-2:hover {
     background-color: #d9534f;
 }
 
-.info-button-1:hover {
+.acti-button-1:hover {
     background-color: #5cb85c;
 }
 
@@ -20,11 +20,11 @@ a {
     background-color: #5cb85c;
 }
 
-.change_info-button-2:hover {
+.change_acti-button-2:hover {
     background-color: #d9534f;
 }
 
-.change_info-button-1:hover {
+.change_acti-button-1:hover {
     background-color: #5cb85c;
 }
 
@@ -37,6 +37,7 @@ a {
     visibility: hidden;
     z-index: 1;
 }
+
 /* 主信息 */
 tbody td {
     height: 40px;
@@ -44,7 +45,7 @@ tbody td {
 }
 
 /* 信息收集表 */
-.info {
+.acti {
     width: 551px;
     height: 452px;
     visibility: hidden;
@@ -54,7 +55,7 @@ tbody td {
 }
 
 /* 排序收集表 */
-.search_info {
+.search_acti {
     width: 551px;
     height: 452px;
     visibility: hidden;
@@ -62,17 +63,9 @@ tbody td {
     left: 524px;
     z-index: 2;
 }
+
 /* 搜索收集表 */
-.sou_info {
-    width: 551px;
-    height: 452px;
-    visibility: hidden;
-    position: absolute;
-    left: 524px;
-    z-index: 2;
-}
-/* 解压缩 */
-.info_out{
+.sou_acti {
     width: 551px;
     height: 452px;
     visibility: hidden;
@@ -82,7 +75,7 @@ tbody td {
 }
 
 /* 表头 */
-.info-title {
+.acti-title {
     width: 551px;
     height: 41px;
     color: #ffffff;
@@ -92,52 +85,14 @@ tbody td {
 
 
 /* 表头文字 */
-.info-title-p {
-   margin-left: 20px;
-   line-height: 41px;
+.acti-title-p {
+    margin-left: 20px;
+    line-height: 41px;
 }
 
 
 /* 主体 */
-.info-main {
-    width: 404px;
-    height: 680px;
-    background-color: #fff;
-    padding-left: 147px;
-    padding-top: 20px;
-    border: 1px solid #000;
-}
-
-
-
-
-
-
-/* 所有的下载信息 */
-/* 下载表头 */
-.info-title_down {
-    width: 551px;
-    height: 41px;
-    color: #ffffff;
-    background-color: #555555;
-    font-size: 20px;
-}
-/* 下载表头文字 */
-.info-title_down-p {
-    margin-left: 20px;
-    line-height: 41px;
- }
-/* 下载收集表 */
-.info_down {
-    width: 551px;
-    height: 452px;
-    visibility: hidden;
-    position: absolute;
-    left: 524px;
-    z-index: 2;
-}
-/* 下载主体 */
-.info-main_down {
+.acti-main {
     width: 404px;
     height: 440px;
     background-color: #fff;
@@ -145,168 +100,6 @@ tbody td {
     padding-top: 20px;
     border: 1px solid #000;
 }
-
-.info-main_down input {
-    /* display: block; */
-    background-color: #ebebe4;
-    margin-left: 80px;
-}
-/* 下载选择栏 */
-.chioce3_down {
-    width: 551px;
-    height: 60px;
-    border: 1px solid #000;
-}
-/* 表单按钮 */
-.info-button_down-1 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-/* 表单按钮 */
-.info-button_down-2 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-/* 所有的下载信息 */
-
-
-
-
-/* 所有的上传信息 */
-/* 下载表头 */
-.info-title_up {
-    width: 551px;
-    height: 41px;
-    color: #ffffff;
-    background-color: #555555;
-    font-size: 20px;
-}
-/* 下载表头文字 */
-.info-title_up-p {
-    margin-left: 20px;
-    line-height: 41px;
- }
-/* 下载收集表 */
-.info_up {
-    width: 551px;
-    height: 452px;
-    visibility: hidden;
-    position: absolute;
-    left: 524px;
-    z-index: 2;
-}
-/* 下载主体 */
-.info-main_up {
-    width: 404px;
-    height: 440px;
-    background-color: #fff;
-    padding-left: 147px;
-    padding-top: 20px;
-    border: 1px solid #000;
-}
-
-.info-main_up input {
-    /* display: block; */
-    background-color: #ebebe4;
-    margin-left: 80px;
-}
-/* 下载选择栏 */
-.chioce3_up {
-    width: 551px;
-    height: 60px;
-    border: 1px solid #000;
-}
-/* 表单按钮 */
-.info-button_up-1 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-/* 表单按钮 */
-.info-button_up-2 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-/* 所有的上传信息 */
-
-
-
-/* 所有的解压信息 */
-/* 下载表头 */
-.info-title_out {
-    width: 551px;
-    height: 41px;
-    color: #ffffff;
-    background-color: #555555;
-    font-size: 20px;
-}
-/* 下载表头文字 */
-.info-title_out-p {
-    margin-left: 20px;
-    line-height: 41px;
- }
-/* 下载收集表 */
-.info_out {
-    width: 551px;
-    height: 452px;
-    visibility: hidden;
-    position: absolute;
-    left: 524px;
-    z-index: 2;
-}
-/* 下载主体 */
-.info-main_out {
-    width: 404px;
-    height: 440px;
-    background-color: #fff;
-    padding-left: 147px;
-    padding-top: 20px;
-    border: 1px solid #000;
-}
-
-.info-main_out input {
-    /* display: block; */
-    background-color: #ebebe4;
-    margin-left: 80px;
-}
-/* 下载选择栏 */
-.chioce3_out {
-    width: 551px;
-    height: 60px;
-    border: 1px solid #000;
-}
-/* 表单按钮 */
-.info-button_out-1 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-/* 表单按钮 */
-.info-button_out-2 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-/* 所有的解压信息 */
-
-
-
-
 
 
 
@@ -316,20 +109,22 @@ tbody td {
 
 /* 所有的查询作业信息 */
 /* 下载表头 */
-.info-title_look {
+.acti-title_look {
     width: 551px;
     height: 41px;
     color: #ffffff;
     background-color: #555555;
     font-size: 20px;
 }
+
 /* 下载表头文字 */
-.info-title_look-p {
+.acti-title_look-p {
     margin-left: 20px;
     line-height: 41px;
- }
+}
+
 /* 下载收集表 */
-.info_look{
+.acti_look {
     width: 551px;
     height: 452px;
     visibility: hidden;
@@ -337,8 +132,9 @@ tbody td {
     left: 524px;
     z-index: 2;
 }
+
 /* 下载主体 */
-.info-main_look {
+.acti-main_look {
     width: 404px;
     height: 440px;
     background-color: #fff;
@@ -347,38 +143,174 @@ tbody td {
     border: 1px solid #000;
 }
 
-.info-main_look input {
+.acti-main_look input {
     /* display: block; */
     background-color: #ebebe4;
     margin-left: 80px;
 }
+
 /* 下载选择栏 */
 .chioce3_look {
     width: 551px;
     height: 60px;
     border: 1px solid #000;
 }
+
 /* 表单按钮 */
-.info-button_look-1 {
+.acti-button_look-1 {
     width: 96px;
     height: 41px;
     float: right;
     margin-right: 30px;
     margin-top: 10px;
 }
+
 /* 表单按钮 */
-.info-button_look-2 {
+.acti-button_look-2 {
     width: 96px;
     height: 41px;
     float: right;
     margin-right: 30px;
     margin-top: 10px;
 }
+
 /* 所有的下载信息 */
 
 
 
 
+/* 选择栏 */
+.chioce3 {
+    width: 551px;
+    height: 60px;
+    border: 1px solid #000;
+}
+
+/* 表单按钮 */
+.acti-button-1 {
+    width: 96px;
+    height: 41px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+
+.acti-button-2 {
+    width: 96px;
+    height: 41px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+/* 排序表头 */
+.acti-title_test1 {
+    width: 551px;
+    height: 41px;
+    color: #ffffff;
+    background-color: #555555;
+    font-size: 20px;
+}
+
+/* 排序表头文字 */
+.acti-title-p_test1 {
+    margin-left: 20px;
+    line-height: 41px;
+}
+
+/* 排序主体 */
+.acti-main_test1 {
+    width: 404px;
+    height: 334px;
+    background-color: #fff;
+    padding-left: 147px;
+    padding-top: 20px;
+    border: 1px solid #000;
+}
+
+.acti-main_test1 input {
+    /* display: block; */
+    background-color: #ebebe4;
+    margin-left: 80px;
+}
+
+/* 选择栏 */
+.cchioce3_test {
+    width: 551px;
+    height: 60px;
+    border: 1px solid #000;
+}
+
+.acti-button-test1 {
+    width: 96px;
+    height: 41px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+.acti-button-test2 {
+    width: 96px;
+    height: 41px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+/* 搜索表头 */
+.acti-title_test2 {
+    width: 551px;
+    height: 41px;
+    color: #ffffff;
+    background-color: #555555;
+    font-size: 20px;
+}
+
+/* 搜索表头文字 */
+.acti-title-p_test2 {
+    margin-left: 20px;
+    line-height: 41px;
+}
+
+/* 搜索主体 */
+.acti-main_test2 {
+    width: 404px;
+    height: 334px;
+    background-color: #fff;
+    padding-left: 147px;
+    padding-top: 20px;
+    border: 1px solid #000;
+}
+
+.acti-main_test2 input {
+    /* display: block; */
+    background-color: #ebebe4;
+    margin-left: 80px;
+}
+
+/* 选择栏 */
+.chioce3_s {
+    width: 551px;
+    height: 60px;
+    border: 1px solid #000;
+}
+
+.acti-button-s1 {
+    width: 96px;
+    height: 41px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+.acti-button-s2 {
+    width: 96px;
+    height: 41px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
 /* 所有的日志信息 */
 /* 下载表头 */
 .info-title_day {
@@ -405,7 +337,7 @@ tbody td {
 /* 下载主体 */
 .info-main_day {
     width: 404px;
-    height: 440px;
+    height: 600px;
     background-color: #fff;
     padding-left: 147px;
     padding-top: 20px;
@@ -439,139 +371,10 @@ tbody td {
 
 
 
-
-
-
-
-/* 选择栏 */
-.chioce3 {
-    width: 551px;
-    height: 60px;
-    border: 1px solid #000;
-}
-/* 表单按钮 */
-.info-button-1 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-
-
-.info-button-2 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-
-/* 排序表头 */
-.info-title_test1 {
-    width: 551px;
-    height: 41px;
-    color: #ffffff;
-    background-color: #555555;
-    font-size: 20px;
-}
-/* 排序表头文字 */
-.info-title-p_test1 {
-    margin-left: 20px;
-    line-height: 41px;
- }
- /* 排序主体 */
-.info-main_test1 {
-    width: 404px;
-    height: 334px;
-    background-color: #fff;
-    padding-left: 147px;
-    padding-top: 20px;
-    border: 1px solid #000;
-}
-.info-main_test1 input {
-    /* display: block; */
-    background-color: #ebebe4;
-    margin-left: 80px;
-}
-/* 选择栏 */
-.cchioce3_test {
-    width: 551px;
-    height: 60px;
-    border: 1px solid #000;
-}
-.info-button-test1 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-
-.info-button-test2 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-
-/* 搜索表头 */
-.info-title_test2 {
-    width: 551px;
-    height: 41px;
-    color: #ffffff;
-    background-color: #555555;
-    font-size: 20px;
-}
-/* 搜索表头文字 */
-.info-title-p_test2 {
-    margin-left: 20px;
-    line-height: 41px;
- }
- /* 搜索主体 */
-.info-main_test2 {
-    width: 404px;
-    height: 334px;
-    background-color: #fff;
-    padding-left: 147px;
-    padding-top: 20px;
-    border: 1px solid #000;
-}
-.info-main_test2 input {
-    /* display: block; */
-    background-color: #ebebe4;
-    margin-left: 80px;
-}
-/* 选择栏 */
-.chioce3_s {
-    width: 551px;
-    height: 60px;
-    border: 1px solid #000;
-}
-.info-button-s1 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-
-.info-button-s2 {
-    width: 96px;
-    height: 41px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-
-
-
-
 /* 网页 */
 .W {
     width: 2000px;
-    height: 1500px;
+    height: 800px;
     background-color: #f0ece9;
     border: 2px solid #b6b4b6;
 }
@@ -584,7 +387,7 @@ tbody td {
 }
 
 /* 顶部的文字 */
-.titleword{
+.titleword {
     width: 400px;
     height: 50px;
     display: inline-block;
@@ -594,7 +397,7 @@ tbody td {
 }
 
 /* 顶部的线 */
-.border-line-left{
+.border-line-left {
     width: 400px;
     height: 30px;
     float: left;
@@ -602,7 +405,7 @@ tbody td {
 }
 
 /* 顶部的线 */
-.border-line-right{
+.border-line-right {
     width: 400px;
     height: 30px;
     float: right;
@@ -610,14 +413,14 @@ tbody td {
 }
 
 /* 新增 删除*/
-.chioce1{
+.chioce1 {
     height: 56px;
     width: 1202px;
     margin-left: 200px;
 }
 
 /* 新增 */
-.btn-add{
+.btn-add {
     width: 96px;
     height: 41px;
     display: inline-block;
@@ -627,34 +430,37 @@ tbody td {
 }
 
 /* 删除 */
-.btn-del{
+.btn-del {
     width: 96px;
     height: 41px;
     display: inline-block;
     color: white;
-    background-color:#d9534f;
+    background-color: #d9534f;
     border: 1px solid black;
 }
+
 /* 排序 */
-.btn-test{
+.btn-test {
     width: 96px;
     height: 41px;
     display: inline-block;
     color: white;
-    background-color:#d9534f;
+    background-color: #d9534f;
     border: 1px solid black;
 }
+
 /* 搜索 */
-.btn-search{
+.btn-search {
     width: 96px;
     height: 41px;
     display: inline-block;
     color: white;
-    background-color:#d9534f;
+    background-color: #d9534f;
     border: 1px solid black;
 }
+
 /* 下载电子资料 */
-.btn-down{
+.btn-down {
     width: 96px;
     height: 41px;
     display: inline-block;
@@ -662,63 +468,58 @@ tbody td {
     background-color: #5cb85c;
     border: 1px solid black;
 }
+
 /* 上传作业 */
-.btn-up{
+.btn-up {
     width: 96px;
     height: 41px;
     display: inline-block;
     color: white;
-    background-color:#d9534f;
+    background-color: #d9534f;
     border: 1px solid black;
 }
+
 /* 刷新界面 */
-.btn-re{
+.btn-re {
     width: 96px;
     height: 41px;
     display: inline-block;
     color: white;
-    background-color:#994fd9;
+    background-color: #994fd9;
     border: 1px solid black;
 }
+
 /* 查询作业界面 */
-.btn-look{
+.btn-look {
     width: 96px;
     height: 41px;
     display: inline-block;
     color: white;
-    background-color:#994fd9;
+    background-color: #994fd9;
     border: 1px solid black;
 }
-/* 日志界面 */
-.btn-day{
+/* 查询日志界面 */
+.btn-day {
     width: 96px;
     height: 41px;
     display: inline-block;
     color: white;
-    background-color:#994fd9;
+    background-color: #994fd9;
     border: 1px solid black;
 }
-/* 解压界面 */
-.btn-out{
-    width: 96px;
-    height: 41px;
-    display: inline-block;
-    color: white;
-    background-color:#994fd9;
-    border: 1px solid black;
-}
+
 
 
 
 
 /* 主界面 */
-.Mainpage{
+.Mainpage {
     height: 900px;
     width: 1500px;
 }
 
 /* 表格 */
-.mainpage{
+.mainpage {
     text-align: center;
     border-collapse: collapse;
     width: 1202px;
@@ -727,8 +528,8 @@ tbody td {
 
 
 /* 信息提示栏 */
-.MessageBoard{
-    width:1202px;
+.MessageBoard {
+    width: 1202px;
     height: 56px;
     background-color: #dadee1;
 }
@@ -753,27 +554,27 @@ tbody td {
 }
 
 /* 第一行高度 */
-.MessageBoard th{
+.MessageBoard th {
     height: 55px;
 }
 
-   /* 奇数信息显示栏 */
-.informationdisplaybar-evennumber{
+/* 奇数信息显示栏 */
+.actirmationdisplaybar-evennumber {
     width: 1202px;
     height: 41px;
     background-color: #ffffff;
 }
 
 /* 偶数信息显示栏 */
-.informationdisplaybar-oddnumber{
+.actirmationdisplaybar-oddnumber {
     width: 1202px;
     height: 41px;
     background-color: #eef1f8;
-} 
+}
 
 
 /* 翻页界面 */
-.chioce2{
+.chioce2 {
     height: 61px;
     width: 1202px;
     margin-left: 200px;
@@ -781,34 +582,33 @@ tbody td {
 }
 
 /* 上一页 */
-.button-Previous{
+.button-Previous {
     width: 96px;
     height: 41px;
     display: inline-block;
     color: white;
     background-color: #5cb85c;
     border: 1px solid black;
-    position:absolute;
+    position: absolute;
     left: 1000px;
     top: 21px;
 }
 
 /* 下一页 */
-.button-nextpage{
+.button-nextpage {
     width: 96px;
     height: 41px;
     display: inline-block;
     color: white;
-    background-color:#d9534f;
+    background-color: #d9534f;
     border: 1px solid black;
-    position:absolute;
+    position: absolute;
     left: 1106px;
     top: 21px;
 }
 
 /* 显示当前页数 */
-.showpage{
+.showpage {
     float: left;
     line-height: 62px;
 }
-

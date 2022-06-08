@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生课外信息管理系统</title>
+    <link rel="stylesheet" href="style1.css">
+
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="W">
+        <!-- 标题部分开始 -->
+        <div class="title">
+            <div class="border-line-left"></div>
+            <h1 class="titleword">课外信息管理系统</h1>
+            <div class="border-line-right"></div>
+        </div>
+        <!-- 新增删除按钮开始 -->
+        <div class="chioce1">
+
+            <button class="btn-add">新增</button>
+            <button class="btn-del">删除</button>
+            <button class="btn-test">排序</button>
+            <button class="btn-search">搜索</button>
+            <button class="btn-day">日志</button>
+        </div>
+        <!-- 新增删除按钮结束 -->
+
+        <!-- 主界面开始 -->
+        <div class="Mainpage">
+
+            <table class="mainpage">
+                <!-- 主信息部分开始 -->
+                <thead class="MessageBoard">
+                    <tr>
+                        <th><input type="checkbox" class="check-all"></th>
+                        <th>序号</th>
+                        <th>活动类型</th>
+                        <th>活动名称</th>
+                        <!-- <th>上课地点</th>
+                        <th>课程教师</th>
+                        <th>电子资料</th>
+                        <th>纸质资料</th> -->
+                        <th>活动地点</th>
+                        <th>星期</th>
+                        <th>开始时间</th>
+                        <th>结束时间</th>
+                        <!-- <th>考试信息</th> -->
+
+                    </tr>
+                </thead>
+                <!-- 主信息部分结束 -->
+                <tbody>
+                </tbody>
+            </table>
+
+            <!-- 信息收集表开始 -->
+            <div class="acti">
+                <!-- 表头部分开始 -->
+                <div class="acti-title">
+                    <P class="acti-title-p">新增活动信息</P>
+                </div>
+                <!-- 表头部分结束 -->
+
+                <!-- 表格主体部分开始 -->
+                <div class="acti-main">
+                    活动类型<input type="text"><br /><br />
+                    活动名称<input type="text"><br /><br />
+                    <!-- 上课地点<input type="text"><br /><br />
+                    课程教师<input type="text"><br /><br />
+                    电子资料<input type="text"><br /><br />
+                    纸质资料<input type="text"><br /><br /> -->
+                    活动地点<input type="text"><br /><br />
+                    星期<input type="text"><br /><br />
+                    开始时间<input type="text"><br /><br />
+                    结束时间<input type="text"><br /><br />
+                    <!-- 考试信息<input type="text"><br /><br /> -->
+                </div>
+                <!-- 表格主体部分开始 -->
+                <!-- 按钮开始 -->
+                <div class="chioce3">
+                    <button class="acti-button-1">提交</button>
+                    <button class="acti-button-2">取消</button>
+
+                </div>
+                <!-- 按钮结束 -->
+
+            </div>
+            <!-- 排序信息收集表开始 -->
+            <div class="search_acti">
+                <!-- 表头部分开始 -->
+                <div class="acti-title_test1">
+                    <P class="acti-title-p_test1">请输入排序选择编号</P>
+                </div>
+                <!-- 表头部分结束 -->
+
+                <!-- 表格主体部分开始 -->
+                <div class="acti-main_test1">
+                    <br>1.按活动类型排序<br>2.按活动开始时间排序<br>3.按活动持续时长排序<br>
+
+                    请输入排序选择编号<br /><input type="text" id="666"><br /><br />
+
+                </div>
+                <!-- 表格主体部分开始 -->
+                <!-- 按钮开始 -->
+                <div class="chioce3_test">
+                    <button class="acti-button-test1">提交</button>
+                    <button class="acti-button-test2">取消</button>
+
+                </div>
+                <!-- 按钮结束 -->
+
+            </div>
+
+
+            <div class="sou_acti">
+                <!-- 表头部分开始 -->
+                <div class="acti-title_test2">
+                    <P class="acti-title-p_test2">请输入搜索选择类型</P>
+                </div>
+                <!-- 表头部分结束 -->
+
+                <!-- 表格主体部分开始 -->
+                <div class="acti-main_test2">
+                    <br>1.按活动类型搜索<br>2.按活动名称<br>3.按活动所在时间点搜索<br>
+
+                    请输入搜索选择类型<br /><input type="text" id="666"><br /><br />
+                    请输入搜索类型对应的搜索内容<br /><input type="text" id="666"><br /><br />
+
+                </div>
+                <!-- 表格主体部分开始 -->
+                <!-- 按钮开始 -->
+                <div class="chioce3_s">
+                    <button class="acti-button-s1">提交</button>
+                    <button class="acti-button-s2">取消</button>
+
+                </div>
+                <!-- 按钮结束 -->
+
+
+            </div>
+            
+            <!-- 日志 -->
+            <div class="info_day">
+                <!-- 表头部分开始 -->
+                <div class="info-title_day">
+                    <P class="info-title_day-p">查看日志</P>
+                </div>
+                <!-- 表头部分结束 -->
+
+                <!-- 表格主体部分开始 -->
+                <div class="info-main_day">
+                 <ul>
+
+                 </ul>
+                   
+                    
+                </div>
+                <!-- 表格主体部分开始 -->
+                <!-- 按钮开始 -->
+                <div class="chioce3_day">
+                    <button class="info-button_day-1">关闭界面</button>
+                    
+                </div>
+                <!-- 按钮结束 -->
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- 翻页界面开始 -->
+    <div class="chioce2">
+        <span class="showpage"></span>
+        <button class="button-Previous">上一页</button>
+        <button class="button-nextpage">下一页</button>
+    </div>
+    <!-- 翻页界面结束 -->
+
+    </div>
+
+
+
+
+    <script src="function.js"></script>
+
+
+
+</body>
+
+</html>

@@ -54,7 +54,7 @@ const goMessage = () => {
         class="m-3 text-sm btn"
         @click="goHomework"
       >
-        Go Homework
+       GO Activity
       </button>
     </div>
 

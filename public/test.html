@@ -26,6 +26,12 @@
             <button class="btn-del">删除</button>
             <button class="btn-test">排序</button>
             <button class="btn-search">搜索</button>
+            <button class="btn-down">下载电子资料</button>
+            <button class="btn-up">上传作业</button>
+            <button class="btn-look">查询作业</button>
+            <button class="btn-re">刷新</button>
+            <button class="btn-day">日志</button>
+            <button class="btn-out">解压作业</button>
             
         </div>
         <!-- 新增删除按钮结束 -->
@@ -45,11 +51,13 @@
                         <th>课程教师</th>
                         <th>电子资料</th>
                         <th>纸质资料</th>
-                        <th>上课时间</th>
-                        <th>下课时间</th>
-                        <th>考试信息</th>
-                        <th>上传课程作业</th>
-                        <th>下载电子资料</th>
+                        <th>上课时间（小时）</th>
+                        <th>下课时间（小时）</th>
+                        <th>上课时间（周几）</th>
+                        <th>考试时间</th>
+                        <th>考试地点</th>
+                        <th>课程群</th>
+                       
                     </tr>
                 </thead>
                 <!-- 主信息部分结束 -->
@@ -75,7 +83,10 @@
                     纸质资料<input type="text"><br /><br />
                     上课时间<input type="text"><br /><br />
                     下课时间<input type="text"><br /><br />
-                    考试信息<input type="text"><br /><br />
+                    上课时间（周几）<input type="text"><br /><br />
+                    考试时间<input type="text"><br /><br />
+                    考试地点<input type="text"><br /><br />
+                    课程群<input type="text"><br /><br />
                 </div>
                 <!-- 表格主体部分开始 -->
                 <!-- 按钮开始 -->
@@ -87,6 +98,130 @@
                 <!-- 按钮结束 -->
 
             </div>
+            <div class="info_down">
+                <!-- 表头部分开始 -->
+                <div class="info-title_down">
+                    <P class="info-title_down-p">下载资料</P>
+                </div>
+                <!-- 表头部分结束 -->
+
+                <!-- 表格主体部分开始 -->
+                <div class="info-main_down">
+                    下载资料课程的名称<input type="text"><br /><br />
+                    
+                </div>
+                <!-- 表格主体部分开始 -->
+                <!-- 按钮开始 -->
+                <div class="chioce3_down">
+                    <button class="info-button_down-1">提交</button>
+                    <button class="info-button_down-2">取消</button>
+                    
+                </div>
+                <!-- 按钮结束 -->
+
+            </div>
+            <div class="info_up">
+                <!-- 表头部分开始 -->
+                <div class="info-title_up">
+                    <P class="info-title_up-p">上传作业</P>
+                </div>
+                <!-- 表头部分结束 -->
+
+                <!-- 表格主体部分开始 -->
+                <div class="info-main_up">
+                    上传课程的名称<input type="text"><br /><br />
+                    作业内容<input type="text"><br /><br />
+                    上传第几次作业<input type="text"><br /><br />
+                    
+                </div>
+                <!-- 表格主体部分开始 -->
+                <!-- 按钮开始 -->
+                <div class="chioce3_up">
+                    <button class="info-button_up-1">提交</button>
+                    <button class="info-button_up-2">取消</button>
+                    
+                </div>
+                <!-- 按钮结束 -->
+
+            </div>
+
+            <!-- 解压作业 -->
+            <div class="info_out">
+                <!-- 表头部分开始 -->
+                <div class="info-title_out">
+                    <P class="info-title_out-p">解压作业</P>
+                </div>
+                <!-- 表头部分结束 -->
+
+                <!-- 表格主体部分开始 -->
+                <div class="info-main_out">
+                    解压课程的名称<input type="text"><br /><br />
+                    解压第几次作业<input type="text"><br /><br />
+                    
+                </div>
+                <!-- 表格主体部分开始 -->
+                <!-- 按钮开始 -->
+                <div class="chioce3_out">
+                    <button class="info-button_out-1">提交</button>
+                    <button class="info-button_out-2">取消</button>
+                    
+                </div>
+                <!-- 按钮结束 -->
+
+            </div>
+            
+            <!-- 查询作业     -->
+            <div class="info_look">
+                <!-- 表头部分开始 -->
+                <div class="info-title_look">
+                    <P class="info-title_look-p">下载资料</P>
+                </div>
+                <!-- 表头部分结束 -->
+
+                <!-- 表格主体部分开始 -->
+                <div class="info-main_look">
+                    查询课程作业的名称<input type="text"><br /><br />
+                    查询第几次作业<input type="text"><br /><br />
+                   
+                    
+                </div>
+                <!-- 表格主体部分开始 -->
+                <!-- 按钮开始 -->
+                <div class="chioce3_look">
+                    <button class="info-button_look-1">提交</button>
+                    <button class="info-button_look-2">取消</button>
+                    
+                </div>
+                <!-- 按钮结束 -->
+
+            </div>
+<!-- 日志 -->
+            <div class="info_day">
+                <!-- 表头部分开始 -->
+                <div class="info-title_day">
+                    <P class="info-title_day-p">查看日志</P>
+                </div>
+                <!-- 表头部分结束 -->
+
+                <!-- 表格主体部分开始 -->
+                <div class="info-main_day">
+                 <ul>
+
+                 </ul>
+                   
+                    
+                </div>
+                <!-- 表格主体部分开始 -->
+                <!-- 按钮开始 -->
+                <div class="chioce3_day">
+                    <button class="info-button_day-1">关闭界面</button>
+                    
+                </div>
+                <!-- 按钮结束 -->
+
+            </div>
+
+
                  <!-- 排序信息收集表开始 -->
             <div class="search_info">
                 <!-- 表头部分开始 -->
