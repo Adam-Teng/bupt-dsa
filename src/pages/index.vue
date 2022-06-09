@@ -99,7 +99,7 @@ const goMessage = () => {
       <input
         id="input"
         v-model="name1"
-        placeholder="X周X时"
+        placeholder="X时"
         type="text"
         autocomplete="false"
         p="x-4 y-2"
