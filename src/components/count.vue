@@ -1,11 +1,7 @@
 <script setup lang="ts">
 const { counter, pause, resume } = $(useInterval(1000, { immediate: false, controls: true }))
 function alarm() {
-  if (counter % 240 === 70) {
-    setTimeout(() => {
-      alert('起床')
-    }, 10)
-  }
+  
   if (counter % (240 * 7) === (240 * 5 + 90)) {
     setTimeout(() => {
       alert('外出游玩')
