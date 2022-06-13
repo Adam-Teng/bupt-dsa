@@ -80,6 +80,15 @@ tbody td {
     left: 524px;
     z-index: 2;
 }
+/* 上传资料 */
+.info_up_zi{
+    width: 551px;
+    height: 452px;
+    visibility: hidden;
+    position: absolute;
+    left: 524px;
+    z-index: 2;
+}
 
 /* 表头 */
 .info-title {
@@ -240,7 +249,67 @@ tbody td {
 }
 /* 所有的上传信息 */
 
+/* 所有的上传资料信息 */
+/* 下载表头 */
+.info-title_up_zi {
+    width: 551px;
+    height: 41px;
+    color: #ffffff;
+    background-color: #555555;
+    font-size: 20px;
+}
+/* 下载表头文字 */
+.info-title_up_zi-p {
+    margin-left: 20px;
+    line-height: 41px;
+ }
+/* 下载收集表 */
+.info_up_zi {
+    width: 551px;
+    height: 452px;
+    visibility: hidden;
+    position: absolute;
+    left: 524px;
+    z-index: 2;
+}
+/* 下载主体 */
+.info-main_up_zi {
+    width: 404px;
+    height: 440px;
+    background-color: #fff;
+    padding-left: 147px;
+    padding-top: 20px;
+    border: 1px solid #000;
+}
 
+.info-main_up_zi input {
+    /* display: block; */
+    background-color: #ebebe4;
+    margin-left: 80px;
+}
+/* 下载选择栏 */
+.chioce3_up_zi {
+    width: 551px;
+    height: 60px;
+    border: 1px solid #000;
+}
+/* 表单按钮 */
+.info-button_up_zi-1 {
+    width: 96px;
+    height: 41px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+/* 表单按钮 */
+.info-button_up_zi-2 {
+    width: 96px;
+    height: 41px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+/* 所有的上传资料信息 */
 
 /* 所有的解压信息 */
 /* 下载表头 */
@@ -700,6 +769,15 @@ tbody td {
 }
 /* 解压界面 */
 .btn-out{
+    width: 96px;
+    height: 41px;
+    display: inline-block;
+    color: white;
+    background-color:#994fd9;
+    border: 1px solid black;
+}
+/* 上传资料界面 */
+.btn-up_zi{
     width: 96px;
     height: 41px;
     display: inline-block;

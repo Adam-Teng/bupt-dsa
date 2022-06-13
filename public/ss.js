@@ -4,6 +4,7 @@ var bg = document.querySelector(".bg");
 var table = document.querySelector("tbody");
 //记录已有作业的哈希值，用于解压作业
 let has_homework=[""];
+let has_zi=[""];
 //用于记录日志
 let myItem = new Array;
 myItem=[];
@@ -18,9 +19,12 @@ myItem=[];
             homework:new Array,
             num:0,
             todoContent:["本次作业需要完成第二章栈的练习题" ,"本次作业需要完成第三章队列的练习题" ,"本次作业需要完成第四章二叉树的练习题"],
-            todoTime:"统一期末提交,时间为2022-6-10",
+            todoTime_m:5,
+            todoTime_d:15,
             huffmanByteArr_hub:new  Array,
             huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
         },
         {
          id:8,
@@ -30,7 +34,12 @@ myItem=[];
          homework:new Array,
          num:0,
          todoContent:["本次作业需要完成第二章计网的练习题","本次作业需要完成第三章计网的练习题","本次作业需要完成第四章计网的练习题"],
-         todoTime:"2022-6-10",
+         todoTime_m:6,
+            todoTime_d:7,
+         huffmanByteArr_hub:new  Array,
+            huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
      },
      {
          id:12,
@@ -40,7 +49,12 @@ myItem=[];
          homework:new Array,
          num:0,
          todoContent:["本次作业需要完成第二章计组的练习题","本次作业需要完成第三章计组的练习题","本次作业需要完成第四章计组的练习题"],
-         todoTime:"2022-6-10",
+         todoTime_m:8,
+            todoTime_d:5,
+         huffmanByteArr_hub:new  Array,
+            huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
      },
      {
          id:10,
@@ -51,7 +65,12 @@ myItem=[];
          homework:new Array,
          num:0,
          todoContent:["本次作业需要完成第二章自动机的练习题","本次作业需要完成第三章自动机的练习题","本次作业需要完成第四章自动机的练习题"],
-         todoTime:"2022-6-10",
+         todoTime_m:7,
+            todoTime_d:14,
+         huffmanByteArr_hub:new  Array,
+            huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
      },
      {
          id:2,
@@ -62,7 +81,12 @@ myItem=[];
          homework:new Array,
          num:0,
          todoContent:["本次作业需要完成第二章数据库的练习题","本次作业需要完成第三章数据库的练习题","本次作业需要完成第四章数据库的练习题"],
-         todoTime:"2022-6-10",
+         todoTime_m:2,
+            todoTime_d:25,
+         huffmanByteArr_hub:new  Array,
+            huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
      },
      {
         id:11,
@@ -74,7 +98,12 @@ myItem=[];
         homework:new Array,
         num:0,
         todoContent:["本次作业需要完成第二章毛泽东思想的练习题","本次作业需要完成第三章毛泽东思想的练习题","本次作业需要完成第四章毛泽东思想的练习题"],
-        todoTime:"2022-6-20",
+        todoTime_m:9,
+        todoTime_d:14,
+        huffmanByteArr_hub:new  Array,
+        huffmancode_hub:new Array,
+        huf_ziByte:" ",
+        huf_ziCode:" ",
     },
     {
         id:25,
@@ -86,7 +115,12 @@ myItem=[];
         homework:new Array,
         num:0,
         todoContent:["本次作业需要完成第二章JAVA的练习题","本次作业需要完成第三章JAVA的练习题","本次作业需要完成第四章JAVA的练习题"],
-        todoTime:"2022-6-15",
+        todoTime_m:4,
+            todoTime_d:25,
+        huffmanByteArr_hub:new  Array,
+            huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
     },
     {
         id:4,
@@ -98,7 +132,12 @@ myItem=[];
         homework:new Array,
         num:0,
         todoContent:["本次作业需要完成第二章python的练习题","本次作业需要完成第三章python的练习题","本次作业需要完成第四章python的练习题"],
-        todoTime:"2022-6-10",
+        todoTime_m:8,
+            todoTime_d:5,
+        huffmanByteArr_hub:new  Array,
+            huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
     },
     {
         id:19,
@@ -110,7 +149,12 @@ myItem=[];
         homework:new Array,
         num:0,
         todoContent:["本次作业需要完成第二章军事理论的练习题","本次作业需要完成第三章军事理论的练习题","本次作业需要完成第四章军事理论的练习题"],
-        todoTime:"2022-6-10",
+        todoTime_m:6,
+            todoTime_d:6,
+        huffmanByteArr_hub:new  Array,
+            huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
     },
     {
         id:20,
@@ -122,7 +166,12 @@ myItem=[];
         homework:new Array,
         num:0,
         todoContent:["本次作业需要完成第二章C++的练习题","本次作业需要完成第三章C++的练习题","本次作业需要完成第四章C++的练习题"],
-        todoTime:"2022-6-1",
+        todoTime_m:8,
+        todoTime_d:8,
+        huffmanByteArr_hub:new  Array,
+            huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
     },
     {
         id:21,
@@ -134,7 +183,12 @@ myItem=[];
         homework:new Array,
         num:0,
         todoContent:["本次作业需要完成第二章概率论的练习题","本次作业需要完成第三章概率论的练习题","本次作业需要完成第四章概率论的练习题"],
-        todoTime:"2022-6-11",
+        todoTime_m:7,
+        todoTime_d:1,
+        huffmanByteArr_hub:new  Array,
+            huffmancode_hub:new Array,
+            huf_ziByte:" ",
+            huf_ziCode:" ",
     },
     {
         id:27,
@@ -146,7 +200,12 @@ myItem=[];
         homework:new Array,
         num:0,
         todoContent:["本次作业需要完成第二章离散数学的练习题","本次作业需要完成第三章离散数学的练习题","本次作业需要完成第四章离散数学的练习题"],
-        todoTime:"2022-6-13",
+        todoTime_m:4,
+            todoTime_d:30,
+        huffmanByteArr_hub:new  Array,
+        huffmancode_hub:new Array,
+        huf_ziByte:" ",
+        huf_ziCode:" ",
     },
  
     )
@@ -625,8 +684,7 @@ retable.onclick = function () {
     myItem.push("点击了刷新按钮")
     show(cu_page,arr);
 }
-//快排函数
-function quick_sort( left,right)
+function quick_sort( arr_sort,left,right)
 {
     console.log(left);
     
@@ -635,27 +693,27 @@ function quick_sort( left,right)
         {
             return;
         }
-        tempnumber=(Number)(arr[left].endtime)-(Number)(arr[left].starttime);
-        temp=arr[left];
+        tempnumber=(Number)(arr_sort[left].endtime)-(Number)(arr_sort[left].starttime);
+        temp=arr_sort[left];
         i=left;
         j=right;
         
         while(i!=j)
         {
-            while(((Number)(arr[j].endtime)-(Number)(arr[j].starttime))>=tempnumber&&i<j) 
+            while(((Number)(arr_sort[j].endtime)-(Number)(arr_sort[j].starttime))>=tempnumber&&i<j) 
                  j--;
-            while(((Number)(arr[i].endtime)-(Number)(arr[i].starttime))<=tempnumber&&i<j) 
+            while(((Number)(arr_sort[i].endtime)-(Number)(arr_sort[i].starttime))<=tempnumber&&i<j) 
                  i++;
             if(i<j) {
-                 t=arr[i];arr[i]=arr[j];arr[j]=t;
+                 t=arr_sort[i];arr_sort[i]=arr_sort[j];arr_sort[j]=t;
               }
          }
         
-        arr[left]=arr[i];
-        arr[i]=temp;
+        arr_sort[left]=arr_sort[i];
+        arr_sort[i]=temp;
         
-        quick_sort(left,i-1);
-        quick_sort(i+1,right);
+        quick_sort(arr_sort,left,i-1);
+        quick_sort(arr_sort,i+1,right);
         
     }
     /**
@@ -670,36 +728,108 @@ function quick_sort( left,right)
 
 
 
-function radixSort(arr, maxDigit) {
+function radixSort(arr_sort, maxDigit) {
     var mod = 10;
     var dev = 1;
     var counter = [];
     
     for (var i = 0; i < maxDigit; i++, dev *= 10, mod *= 10) {
-        for(var j = 0; j < arr.length; j++) {
-            var bucket = parseInt((arr[j].id % mod) / dev);
+        for(var j = 0; j < arr_sort.length; j++) {
+            var bucket = parseInt((arr_sort[j].id % mod) / dev);
             if(counter[bucket]== null) {
                 counter[bucket] = [];
             }
-            counter[bucket].push(arr[j]);
+            counter[bucket].push(arr_sort[j]);
         }
         var pos = 0;
         for(var j = 0; j < counter.length; j++) {
             var value = null;
             if(counter[j]!=null) {
                 while ((value = counter[j].shift()) != null) {
-                      arr[pos++] = value;
+                      arr_sort[pos++] = value;
                 }
           }
         }
     }
     
-    return arr;
+    return arr_sort;
 }
+function BubbleSort(arr_sort)
+{
+//升级后的选择
+let lastExchangeIndex = 0;
+//无序数列的边界，每次比较只需要比到这里为止
+ let sortBorder = arr_sort.length - 1;
+ for(let i=0;i<arr_sort.length-1;i++)
+ {//控制比较轮次，一共 n-1 趟
+     let isSorted  = true;//有序标记，每一轮的初始是true
+     for(let j=0;j<sortBorder;j++)
+     {//控制两个挨着的元素进行比较
+         // console.log(j)
+         if ((Number)(arr_sort[j].startday) > (Number)(arr_sort[j + 1].startday)) {
+             isSorted=false;
+             let temp = arr_sort[j];
+             arr_sort[j] = arr_sort[j + 1];
+             arr_sort[j + 1] = temp;
+             lastExchangeIndex = j;
+         }
 
+         if ((Number)(arr_sort[j].startday) == (Number)(arr_sort[j + 1].startday) && (Number)(arr_sort[j].starttime) > (Number)(arr_sort[j + 1].starttime)) {
+             isSorted=false;
+             let temp = arr_sort[j];
+             arr_sort[j] = arr_sort[j + 1];
+             arr_sort[j + 1] = temp;
+             lastExchangeIndex = j;
+         }
+     }
+     sortBorder = lastExchangeIndex;
+     if(isSorted)
+     {
+        return arr_sort;
+     }
+    
+ }
+ return arr_sort;
+}
+function BubbleSort_homework(arr_sort)
+{
+//升级后的选择
+let lastExchangeIndex = 0;
+//无序数列的边界，每次比较只需要比到这里为止
+ let sortBorder = arr_sort.length - 1;
+ for(let i=0;i<arr_sort.length-1;i++)
+ {//控制比较轮次，一共 n-1 趟
+     let isSorted  = true;//有序标记，每一轮的初始是true
+     for(let j=0;j<sortBorder;j++)
+     {//控制两个挨着的元素进行比较
+         // console.log(j)
+         if ((Number)(arr_sort[j].todoTime_m) > (Number)(arr_sort[j + 1].todoTime_m)) {
+             isSorted=false;
+             let temp = arr_sort[j];
+             arr_sort[j] = arr_sort[j + 1];
+             arr_sort[j + 1] = temp;
+             lastExchangeIndex = j;
+         }
 
-
-
+         if ((Number)(arr_sort[j].todoTime_m) == (Number)(arr_sort[j + 1].todoTime_m) && (Number)(arr_sort[j].todoTime_d) > (Number)(arr_sort[j + 1].todoTime_d)) {
+             isSorted=false;
+             let temp = arr_sort[j];
+             arr_sort[j] = arr_sort[j + 1];
+             arr_sort[j + 1] = temp;
+             lastExchangeIndex = j;
+         }
+     }
+     sortBorder = lastExchangeIndex;
+     if(isSorted)
+     {
+        return arr_sort;
+     }
+    
+ }
+ return arr_sort;
+}
+//用于显示排序后的课程
+let arr_out = new Array();
 //排序按钮
 var search_test = document.querySelector(".btn-test");
 search_test.onclick = function () {
@@ -714,7 +844,10 @@ search_test.onclick = function () {
         myItem.push("点击了排序按钮中的取消按钮")
         search_info.style.visibility = "hidden";
         var infomation = search_info.querySelectorAll("input");
-            infomation.value = null;
+        for(let i=0;i<infomation.length;i++)
+        {
+            infomation[i].value = null;
+        }
         bg.style.visibility = "hidden";
     }
 
@@ -723,57 +856,73 @@ search_test.onclick = function () {
         test_sure.onclick = function () {
             myItem.push("点击了排序按钮中的提交按钮")
             var infomation = search_info.querySelectorAll("input");
-            console.log(infomation);
-            console.log(infomation.length);
-            let stu=infomation[0].value;
-            console.log(stu);
+            // console.log(infomation);
+            // console.log(infomation.length);
+            let chioce=infomation[0].value;
+            if(chioce=="1")
+            {
+                arr_temp=arr_id;
+            }
+            else if(chioce=="2")
+            {
+                arr_temp=arr_name;
+            }
+            else if(chioce=="3")
+            {
+                arr_temp=arr_time;
+            }
+            else if(chioce=="4")
+            {
+                arr_temp=arr;
+            }
+            else 
+            {
+                alert("请输入正确的格式,如“1”");
+            }
+
+
+
+
+            let stu=infomation[1].value;
+            // console.log(stu);
             
            
             if(stu==1){
                 myItem.push("点击了排序按钮中的按课程编号排序")
                 // 基数排序
-                radixSort(arr,2); 
+                arr_out=radixSort(arr_temp,2); 
+                // console.log("hhhhh")
             }
             else if(stu==2){
                 myItem.push("点击了排序按钮中的按课程开始时间排序")
-              //升级后的选择
-                let lastExchangeIndex = 0;
-               //无序数列的边界，每次比较只需要比到这里为止
-                let sortBorder = arr.length - 1;
-                for(let i=0;i<arr.length-1;i++)
-                {//控制比较轮次，一共 n-1 趟
-                    let isSorted  = true;//有序标记，每一轮的初始是true
-                    for(let j=0;j<sortBorder;j++)
-                    {//控制两个挨着的元素进行比较
-                        // console.log(j)
-                        if ((Number)(arr[j].startday) > (Number)(arr[j + 1].startday)) {
-                            isSorted=false;
-                            let temp = arr[j];
-                            arr[j] = arr[j + 1];
-                            arr[j + 1] = temp;
-                            lastExchangeIndex = j;
-                        }
-    
-                        if ((Number)(arr[j].startday) == (Number)(arr[j + 1].startday) && (Number)(arr[j].starttime) > (Number)(arr[j + 1].starttime)) {
-                            isSorted=false;
-                            let temp = arr[j];
-                            arr[j] = arr[j + 1];
-                            arr[j + 1] = temp;
-                            lastExchangeIndex = j;
-                        }
-                    }
-                    sortBorder = lastExchangeIndex;
-                    if(isSorted)
-                    break;
-                }
-        
+              
+               arr_out= BubbleSort(arr_temp);
             }
             else if(stu==3){
                 myItem.push("点击了排序按钮中的按课程持续时间排序")
-               
+               console.log(arr_temp);
                 //快排
-                quick_sort(0,arr.length-1);
-            }
+                quick_sort(arr_temp,0,arr.length-1);
+                console.log(arr_temp);
+                arr_out=arr_temp;
+               
+            } 
+            else if(stu==4){
+                myItem.push("点击了排序按钮中的对课程作业提交时间排序")
+               
+            
+                BubbleSort_homework(datahub);
+                let str_out="";
+                for(let p=0;p<datahub.length;p++)
+                {
+                    str_out+=datahub[p].name+':'+datahub[p].todoTime_m+'月'+datahub[p].todoTime_d+'日'+'\n';
+                }
+               alert(str_out);
+               arr_out=arr;
+        }
+
+
+            
             else{
                 myItem.push("排序选项输入错误");
                    //程序的健壮性，一定要写
@@ -782,12 +931,32 @@ search_test.onclick = function () {
             for (var i = 0; i < infomation.length; i++) {
                 infomation[i].value = null;
             }
-            show(cu_page,arr);
+            show(cu_page,arr_out);
             search_info.style.visibility = "hidden";
             bg.style.visibility = "hidden";
         }
     }
-
+    // 给定一个有序（非降序）数组，可能含有重复元素，求最小的i使得A[i]等于target，不存在则返回-1
+        function binary_search ( item){
+            let low = 0
+            height = arr.length - 1
+            while(low < height){
+                let mid = parseInt((height + low) / 2)
+                let guess =(Number)(arr[mid].id);
+                if(guess ==(Number) (item)){
+                    return mid
+                }else if(guess > (Number) (item)){
+                    height = mid - 1
+                }else{
+                    low = mid + 1
+                }
+            }
+            return -1
+        }
+       
+        var arr_time = new Array();
+        var arr_id = new Array();
+        var arr_name = new Array();
 //查找
 var searchta= document.querySelector(".btn-search");
 searchta.onclick = function () {
@@ -820,13 +989,14 @@ searchta.onclick = function () {
             if(temp==1)
                 {
                     myItem.push("点击了查找按钮中的按课程编号查找")
+                    radixSort(arr,2); 
                     var stuno=infomation[1].value;
-                    let seach_id=stuno;
-                    var arr_id = new Array();
-                    for (var i = 0; i < arr.length; i++) {
-                        if (arr[i].id==seach_id) {
-                            arr_id.push(arr[i]);
-                        }
+                    let seach_id=(Number)(stuno);
+                   
+                    let num_temp=binary_search (seach_id);
+                    if(num_temp!=-1)
+                    {
+                        arr_id.push(arr[num_temp]);
                     }
                     show(cu_page,arr_id);
                 }
@@ -834,7 +1004,7 @@ searchta.onclick = function () {
                     myItem.push("点击了查找按钮中的按课程名称查找")
                     var stuno = infomation[1].value;
                     let seach_name = stuno;
-                    var arr_name = new Array();
+                    
                     for (var i = 0; i < arr.length; i++) {
                         if (index1(arr[i].name, seach_name) >= 0) {
                             arr_name.push(arr[i]);
@@ -848,7 +1018,7 @@ searchta.onclick = function () {
                     myItem.push("点击了查找按钮中的按课程所在时间点查找")
                     var stuno=infomation[1].value;
                     let seach_time=(Number)(stuno);
-                    var arr_time = new Array();
+                    
                     for (var i = 0; i < arr.length; i++) {
                         if ((Number)(arr[i].starttime)<=seach_time&&(Number)(arr[i].endtime)>=seach_time) {
                             arr_time.push(arr[i]);
@@ -928,10 +1098,19 @@ downinfo.onclick = function () {
                             break;    
                         }
                     }
-                    console.log(temp1)
+                    let content_zi;
+                    if(temp1.huf_ziByte=" ")
+                    {
+                        content_zi=temp1.elDocument;
+                    }
+                    else 
+                    {
+                        content_zi=byteToString(decode(temp1.huf_ziCode, temp1.huf_ziByte));
+                    }
+                    console.log(content_zi)
                     if(cnt==1)
                     {
-                        arr[k].elDocument=temp1.elDocument;
+                        arr[k].elDocument=content_zi;
                         show(cu_page, arr);
                     }
             for (var i = 0; i < infomation.length; i++) {
@@ -1003,7 +1182,8 @@ uphomework.onclick = function () {
                             has_homework.push(temp2);
                             alert("提交成功，"+temp.name+"第"+temp1+"次作业，提交文件哈希值为"+temp2);
                             //哈夫曼压缩
-                            let yasuocontent= yasuowenjian(infomation[1].value,temp,temp1)
+                            //最后的1代表作业的选项
+                            let yasuocontent= yasuowenjian(infomation[1].value,temp,temp1,1)
                             temp.homework[temp1-1]=yasuocontent;
                             console.log(has_homework);
                         //     alert(temp1-1)
@@ -1023,6 +1203,121 @@ uphomework.onclick = function () {
             bg.style.visibility = "hidden";
         }
     }
+
+
+   //提交更改电子资料*****
+    var upzi = document.querySelector(".btn-up_zi");
+    upzi.onclick = function () {
+        myItem.push("点击了提交电子资料按钮")
+        // 弹出信息框
+        var search_info = document.querySelector(".info_up_zi");
+        search_info.style.visibility = "visible";
+        bg.style.visibility = "visible";
+        // 取消提交
+        var test_cancel = document.querySelector(".info-button_up_zi-2");
+        test_cancel.onclick = function () {
+            myItem.push("点击了提交资料按钮中的取消提交按钮")
+            search_info.style.visibility = "hidden";
+            var infomation = search_info.querySelectorAll("input");
+            for(let i=0;i<infomation.length;i++)
+            {
+                infomation.value = null;
+            }
+                
+            bg.style.visibility = "hidden";
+        }
+    
+            //提交信息
+            var test_sure = document.querySelector(".info-button_up_zi-1")
+            test_sure.onclick = function () {
+                myItem.push("点击了提交资料按钮中的提交按钮")
+                let cnt=1;
+                var infomation = search_info.querySelectorAll("input");
+                var stuno = infomation[0].value;
+                        let temp=hashTable_data.get(stuno);
+                        if(temp==null)
+                        {
+                            alert("该课程不存在，请重新输入");
+                        }
+                        if(infomation[1].value=="")
+                        {
+                            alert("输入为空");
+                        }  
+                        
+                        else{
+                            myItem.push("提交资料成功")
+                            let ppp=0;
+                            let temp2=ca_hash(infomation[1].value);
+    
+                            //哈希查重
+                            for(let h=0;h<has_zi.length;h++)
+                            {
+                                if(temp2==has_zi[h])
+                                {
+                                    ppp=1;
+                                    alert("提交资料重复")
+                                }
+                            }
+    
+                            if(ppp==0)
+                            {
+                                has_zi.push(temp2);
+                                alert("提交成功，提交文件哈希值为"+temp2);
+                                temp.elDocument=infomation[1].value;
+                                console.log(temp.elDocument);
+                                //哈夫曼压缩
+                               //倒数第二个参数没有意义，只为了形式的统一
+                                let yasuocontent= yasuowenjian(infomation[1].value,temp,0,0);
+                                temp.paDocument=yasuocontent;
+
+                                console.log(temp.paDocument);
+                            //     alert(temp1-1)
+                            // alert('解码后的字符串'+byteToString(decode(temp.huffmancode_hub[temp1-1], temp.huffmanByteArr_hub[temp1-1])));
+                            }
+                            
+                          
+                        }
+                      
+                        show(cu_page, arr);
+               
+                for (var i = 0; i < infomation.length; i++) {
+                    infomation[i].value = null;
+                }
+                
+                search_info.style.visibility = "hidden";
+                bg.style.visibility = "hidden";
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1132,7 +1427,7 @@ lookinfo.onclick = function () {
                     }
                     else{
                         myItem.push(" 查询作业成功")
-                        alert("课程作业为："+'\n'+temp.todoContent[temp1]+'\n'+'截止时间是:'+temp.todoTime+'\n'+'课程资料为：'+'\n'+temp.elDocument+'\n'+'已提交作业为：'+'\n'+temp.homework[temp1]);
+                        alert("课程作业为："+'\n'+temp.todoContent[temp1]+'\n'+'截止时间是:'+temp.todoTime_m+'月'+temp.todoTime_d+'日'+'\n'+'课程资料为：'+'\n'+temp.elDocument+'\n'+'已提交作业为：'+'\n'+temp.homework[temp1]);
                     }
         
            
@@ -1269,7 +1564,7 @@ function jump(page,arr_temp) {
 function shwow_page() {
     document.querySelector(".showpage").innerHTML = "第 " + (cu_page + 1) + " 页,共 " + arr.length + " 条,每页显示10条";
 }
- var arr1 = new Array();
+//  var arr1 = new Array();
 		var temp_str ="0";
 		var i = 0;
         class Node {
@@ -1543,7 +1838,7 @@ function shwow_page() {
         }
         let zipcontent;
         //参数为压缩内容，对应的课程，以及第几次作业
-function yasuowenjian(content,temp,temp1)
+function yasuowenjian(content,temp,temp1,cnt)
 {
 
 
@@ -1557,7 +1852,7 @@ function yasuowenjian(content,temp,temp1)
         root.preOrder(list);
         console.log('前序遍历：', list);
           hufumanCodes = getCodes2(root);
-          temp.huffmancode_hub[temp1-1]=hufumanCodes;
+          
         console.log('生成的赫夫曼编码表：', hufumanCodes);
         //生成赫夫曼编码字符串
         let hufumanStrArr = zip(bytes, hufumanCodes);
@@ -1567,7 +1862,19 @@ function yasuowenjian(content,temp,temp1)
         //将生成赫夫曼编码字符串转成字节数组, 要发送的数组
         let hufumanByteArr = huffstringToByte(hufumanStrArr);
         console.log('压缩后的字节数组', hufumanByteArr);
-        temp.huffmanByteArr_hub[temp1-1]=hufumanByteArr;
+        //作业的情况下
+        if(cnt==1)
+        {
+            temp.huffmanByteArr_hub[temp1-1]=hufumanByteArr;
+            temp.huffmancode_hub[temp1-1]=hufumanCodes;
+        }
+        //资料的情况
+        else if(cnt==0)
+        {
+            temp.huf_ziByte=hufumanByteArr;
+            temp.huf_ziCode=hufumanCodes;
+        }
+        
         // str+='压缩后的字节数组'+ hufumanByteArr+'\n';
         console.log('压缩率：', (bytes.length - hufumanByteArr.length) / bytes.length * 100 + '%');
         str+='压缩率：'+ (bytes.length - hufumanByteArr.length) / bytes.length * 100 + '%'+'\n';
