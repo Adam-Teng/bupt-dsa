@@ -6,11 +6,13 @@ function alarm() {
       alert('外出游玩')
     }, 10)
   }
+  /*
   if (counter % 10000000000000 === 10) {
     setTimeout(() => {
       alert('测试')
     }, 10)
   }
+  */
 }
 function formatTime(value: number) {
   const result = (value + 240) % (30 * 24 * 10)
